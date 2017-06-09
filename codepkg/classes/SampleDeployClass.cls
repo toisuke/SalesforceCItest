@@ -1,3 +1,6 @@
+/**
+ * 2017-06-09 Branch1
+ */
 @isTest
 public class SampleDeployClass {
 
@@ -15,7 +18,7 @@ public class SampleDeployClass {
     public static String getPhone() {
         return 'SamplePhone#';
     }
-    
+
     public static void helloMethod() {
         System.debug('Hello World');
     }
