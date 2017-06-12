@@ -10,7 +10,7 @@
         <name>ApexTrigger</name>
     </types> -->
     <types>
-        <members>SampleAccountTrigger</members>
+        <members>SamplePage</members>
         <name>ApexPage</name>
     </types>
     <version>40.0</version>
