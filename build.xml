@@ -35,7 +35,7 @@
 			deployRoot="codepkg"
 			testLevel="RunSpecifiedTests"
 			sobjectPlural="true"
-			checkOnly="false"
+			checkOnly="true"
 			rollbackOnError="true"
 			autoUpdatePackage="true"
 		>
