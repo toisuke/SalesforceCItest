@@ -1,0 +1,6 @@
+<apex:page Controller="SampleDeployClass">
+
+    <apex:outputText value="Hello World!" /><br/>
+    <apex:outputText value="{!Phone}" /><br/>
+
+</apex:page>
