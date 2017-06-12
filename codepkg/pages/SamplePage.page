@@ -1,4 +1,0 @@
-<apex:page Controller="SampleDeployClass">
-    <apex:outputText id="test" value="TEST"/>
-    <apex:outputText id="phone" value="{!Phone}"/>
-</apex:page>
