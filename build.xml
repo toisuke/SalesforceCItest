@@ -1,0 +1,61 @@
+<project name="Sample usage of Salesforce-CI Ant tasks" basedir="." default="deployForCI" xmlns:sfc="antlib:com.hiradimir.sforce.ci">
+
+    <property name="property" value="build.properties"/>
+	<property environment="env" />
+
+    <available file="${property}" property="property.exists" />
+    <fail unless="${property.exists}" message="Property file does not exist: ${property}" />
+
+    <property file="${property}"/>
+	<echo message="Username: ${sf.username}" />
+    <echo message="deployTarget: ${deployTarget}" />
+    <echo message="retrieveTarget: ${retrieveTarget}" />
+
+	<!-- Build / TestResult never actually saves to the server -->
+	<target name="deployForCIRunAllTest">
+		<sfc:deployForCI
+			username="${sf.username}"
+			password="${sf.password}"
+			serverurl="${sf.serverurl}"
+			presentDirectory="target/sforceci/src"
+			deployRoot="src"
+			testLevel="RunAllTestsInOrg"
+			sobjectPlural="true"
+			checkOnly="true"
+			rollbackOnError="true"
+			autoUpdatePackage="true"
+		/>
+	</target>
+	<target name="deployForCI">
+		<sfc:deployForCI
+			username="${sf.username}"
+			password="${sf.password}"
+			serverurl="${sf.serverurl}"
+			presentDirectory="target/sforceci/src"
+			deployRoot="codepkg"
+			testLevel="RunSpecifiedTests"
+			sobjectPlural="true"
+			checkOnly="true"
+			rollbackOnError="true"
+			autoUpdatePackage="true"
+		>
+			<runTest>SampleDeployClass</runTest>
+		</sfc:deployForCI>
+	</target>
+	<!-- Build / TestResult never actually saves to the server -->
+	<target name="deployForCI-Env">
+		<sfc:deployForCI
+			username="${env.sforce_ci_username}"
+			password="${env.sforce_ci_passphrase}"
+			serverurl="${env.sforce_ci_serverurl}"
+			presentDirectory="${basedir}/target/sforceci/src"
+			deployRoot="${basedir}/src"
+			testLevel="RunAllTestsInOrg"
+			sobjectPlural="true"
+			checkOnly="true"
+			rollbackOnError="true"
+			autoUpdatePackage="true"
+		/>
+	</target>
+
+</project>
